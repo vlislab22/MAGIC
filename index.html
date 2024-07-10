@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>UniBind</title>
+    <meta name="author" content="Yuanhuiyi Lyu, Xu Zheng">
+    <meta name="description" content="Project page of UniBind">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+  <body style=“text-align: center;”>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                UniBind: LLM-Augmented Unified and Balanced Representation Space to Bind Them All<br /> 
+                <small>
+                    CVPR 2024
+                </small>
+            </h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+			<img src="./images/huiyi1.png" height="80px"><br>
+                        <a href="https://qc-ly.github.io/" >
+                           Yuanhuiyi Lyu*
+                        </a>
+                        
+                        <br /> AI Thrust, HKUST(GZ)
+                        <br /> &nbsp &nbsp
+
+                    </li>
+
+                    <li>
+			<img src="./images/xu1.png" height="80px"><br>
+			<a href="https://zhengxujosh.github.io/" >
+                        Xu Zheng*
+                      </a>
+                      <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+                <li>
+                    <img src="./images/jiazhou2.png" height="80px"><br>
+                    <a href="https://jiazhou-garland.github.io/" >
+                                Jiazhou Zhou
+                                </a>
+                                <br /> AI Thrust, HKUST(GZ)
+                                <br /> &nbsp &nbsp
+                            </li>
+
+                            <li>
+			    <img src="./images/Addision.png" height="80px"><br>
+                        <a href="https://addisonwang2013.github.io/vlislab/linwang.html">
+                           Addison Lin Wang
+                        </a>
+                        <br /> AI & CMA Thrust, HKUST(GZ) 
+			    <br/> Dept. of CSE, HKUST 
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+			    <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lyu_UniBind_LLM-Augmented_Unified_and_Balanced_Representation_Space_to_Bind_Them_CVPR_2024_paper.pdf">
+                            <img src="./images/arxiv.png" height="100px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+			    <!-- <a href="">
+                            <img src="./images/youtube_icon.jpg" height="100px"><br>
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li> -->
+                            <a href="https://github.com/QC-LY/UniBind">
+                            <img src="./images/github_icon.jpg" height="100px"><br>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+
+                        <!-- <li>
+                            
+                            <img src="./images/colab_icon.jpg" height="100px"><br>
+                                <h4><strong>Colab</strong></h4>
+                            </a>
+                        </li> -->
+ 
+
+<!--                         <li>
+                            <a href="https://github.com/jiazhou-garland/ELIP/blob/master/Appendix.pdf">
+                            <img src="./images/slide_icon.jpg" height="100px"><br>
+                                <h4><strong>Supp</strong></h4>
+                            </a>
+                        </li>                      -->
+                        <li>
+                            <a href="https://vlislab22.github.io/vlislab/">
+                            <img src="./images/lab_logo.png" height="100px"><br>
+                                <h4><strong>Vlislab</strong></h4>
+                            </a>
+                        </li>                       
+                      
+                    </ul>
+                </div>
+        </div>
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    We present UniBind, a flexible and efficient approach
+                    that learns a unified representation space for seven diverse
+                    modalities - image, text, audio, point cloud, thermal, video,
+                    and event data. Existing works, e.g., ImageBind, treat
+                    the image as the central modality and build an image-
+                    centered representation space; however, the space may be
+                    sub-optimal as it leads to an unbalanced representation
+                    space among all modalities. Moreover, the category names
+                    are directly used to extract text embeddings for the down-
+                    stream tasks, making it hardly possible to represent the se-
+                    mantics of multi-modal data. The "out-of-the-box" insight
+                    of our UniBind is to make the alignment centers modality-
+                    agnostic and further learn a unified and balanced repre-
+                    sentation space, empowered by the large language mod-
+                    els (LLMs). UniBind is superior in its flexible application
+                    to all CLIP-style models and delivers remarkable perfor-
+                    mance boosts. To make this possible, we 1) construct a
+                    knowledge base of text with the help of LLMs and multi-
+                    modal LLMs; 2) adaptively build LLM-augmented class-
+                    wise embedding centers on top of the knowledge base and
+                    encoded visual embeddings; 3) align all the embeddings
+                    to the LLM-augmented embedding centers via contrastive
+                    learning to achieve a unified and balanced representation
+                    space. UniBind shows strong zero-shot recognition perfor-
+                    mance gains over prior arts by an average of 6.36%. Fi-
+                    nally, we achieve new state-of-the-art performance, e.g., a
+                    6.75% gain on ImageNet, on the multi-modal fine-tuning
+                    setting while reducing 90% of the learnable parameters
+                </p>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2">
+                <video width="854" height="480" controls src="./images/unibind.mp4" class="img-responsive" alt="vis_res" class="center"><br>        
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+
+     <div class="row">     
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                Overall framework of our UniBind
+            </h3>
+		<p class="text-justify">
+			An overview of our UniBind. Firstly, we construct the <strong>knowledge base</strong>, then learn a unified representation space via <strong>LLM-augmented contrastive learning</strong>, powered by the knowledge base. Lastly, We utilize the <strong>embedding center</strong> localized by the knowledge base to obtain the predictions.
+		</p>
+            <img src="./images/UniBind.png" class="img-responsive" alt="vis_res"  class="center" >
+      	</div>
+    </div>
+<div class="row">     
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                The results of the emergent Zero-shot and Fine-tuning Recognition on <strong>six</strong> modalities.
+            </h3>
+            	<img src="./images/result.png" class="img-responsive" alt="vis_res"  class="center" >
+      	</div>
+    </div>
+<div class="row">     
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                The t-SNE visualization of representation space.
+            </h3>
+		<img src="./images/result_space.png" class="img-responsive" alt="vis_res"  class="center" >
+      	</div>
+    </div>
+<div class="row">     
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                The t-SNE visualization of embedding centers.
+            </h3>
+		<img src="./images/result_tsne.png" class="img-responsive" alt="vis_res"  class="center" >
+      	</div>
+    </div>
+<!-- ####      <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Comparison on octree representations
+          </h3>
+          <p class="text-justify">
+            DOT shows the more compact structure of DOT, 
+            resulting in fewer ray intersections, explaining our significant rendering speed boost.
+
+          </p>
+		  <img src="./image/dot_cp.png" class="img-responsive" alt="vis_res" class="center"><br>
+    </div>   
+    <div class="col-md-8 col-md-offset-2">
+        <h3>
+            Comparison on visual quality and memory consumption
+        </h3>
+        <p class="text-justify">
+            DOT provides more details in complex regions, such as sharper reflections on windows and more evident edges on fences. 
+
+        </p>
+        <img src="./image/dot_cp2.png" class="img-responsive" alt="vis_res" class="center"><br>
+    </div>     
+    </div>
+
+
+		      
+    	<div class="row">      
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Demo 
+          </h3>   
+    </div>   
+      
+    <div class="col-md-8 col-md-offset-2">
+
+            <video width="800"  controls >
+                <source src="./video/dot.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>   
+    </div>          
+      </div>  ####-->
+   <!-- ##### BibTex #####-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+ 
+                <div class="row align-items-center">
+                    <div class="col py-3">
+                        <pre class="border">             
+@article{lyu2024unibind,
+  title={UniBind: LLM-Augmented Unified and Balanced Representation Space to Bind Them All},
+  author={Lyu, Yuanhuiyi and Zheng, Xu and Zhou, Jiazhou and Wang, Lin},
+  journal={arXiv preprint arXiv:2403.12532},
+  year={2024}
+}
+</pre>
+                    </div>
+                </div>
+              
+    
+          </div>
+          
+        </div>
+    </div>
+</body>
+</html>
