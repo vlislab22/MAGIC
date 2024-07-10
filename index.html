@@ -1,4 +1,6 @@
+To ensure the BibTeX entry is left-aligned in your HTML, you need to remove any leading spaces inside the `<pre>` tag and use CSS to ensure proper alignment. Here is your updated HTML:
 
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -104,21 +106,20 @@
             </div>
         </div>
       
-    <div class="container">
-      <h1>Demo Video</h1>
-      
-      <!-- 视频标签 -->
-      <!-- 使用 video 标签嵌入视频 -->
-      <video controls>
-        <!-- 替换为您的视频文件路径 -->
-        <source src="./images/8740_vid.mp4" type="video/mp4">
-      </video>
-      
-      <!-- 视频说明 -->
-      <p>Here is a demo video for the proposed MAGIC.</p>
-    </div>
+        <div class="container">
+            <h1>Demo Video</h1>
+            
+            <!-- 视频标签 -->
+            <!-- 使用 video 标签嵌入视频 -->
+            <video controls>
+                <!-- 替换为您的视频文件路径 -->
+                <source src="./images/8740_vid.mp4" type="video/mp4">
+            </video>
+            
+            <!-- 视频说明 -->
+            <p>Here is a demo video for the proposed MAGIC.</p>
+        </div>
 
-      
         <!-- ##### 结果 #####-->
         <div class="row">     
             <div class="col-md-8 col-md-offset-2">
@@ -137,7 +138,7 @@
                 <h3>BibTeX</h3>
                 <div class="row align-items-center">
                     <div class="col py-3">
-                        <pre class="border">             
+                        <pre class="border">
 @article{zheng2024MAGIC,
   title={Centering the Value of Every Modality: Towards Efficient and Resilient Modality-agnostic Semantic Segmentation},
   author={Zheng, Xu and Lyu, Yuanhuiyi and Zhou, Jiazhou and Wang, Lin},
@@ -152,3 +153,6 @@
     </div>
   </body>
 </html>
+```
+
+By removing the leading spaces before the BibTeX entry and keeping it within the `<pre>` tag, it will now be left-aligned.
