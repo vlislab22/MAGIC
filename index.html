@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>UniBind</title>
+    <title>MAGIC</title>
     <meta name="author" content="Yuanhuiyi Lyu, Xu Zheng">
-    <meta name="description" content="Project page of UniBind">
+    <meta name="description" content="Project page of MAGIC">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="eccv_logo.png">
     <!-- Format -->
@@ -26,9 +26,9 @@
     <div class="container" id="main">
         <div class="row">
             <h1 class="col-md-12 text-center">
-                UniBind: LLM-Augmented Unified and Balanced Representation Space to Bind Them All<br /> 
+                Centering the Value of Every Modality: Towards Efficient and Resilient Modality-agnostic Semantic Segmentation<br /> 
                 <small>
-                    CVPR 2024
+                    ECCV 2024
                 </small>
             </h1>
         </div>
@@ -36,10 +36,21 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <ul class="list-inline">
+
+			
+                    <li>
+			<img src="./images/xu1.png" height="80px"><br>
+			<a href="https://zhengxujosh.github.io/" >
+                        Xu Zheng
+                      </a>
+                      <br /> AI Thrust, HKUST(GZ)
+                      <br /> &nbsp &nbsp
+                    </li>
+			
                     <li>
 			<img src="./images/huiyi1.png" height="80px"><br>
                         <a href="https://qc-ly.github.io/" >
-                           Yuanhuiyi Lyu*
+                           Yuanhuiyi Lyu
                         </a>
                         
                         <br /> AI Thrust, HKUST(GZ)
@@ -47,14 +58,6 @@
 
                     </li>
 
-                    <li>
-			<img src="./images/xu1.png" height="80px"><br>
-			<a href="https://zhengxujosh.github.io/" >
-                        Xu Zheng*
-                      </a>
-                      <br /> AI Thrust, HKUST(GZ)
-                      <br /> &nbsp &nbsp
-                    </li>
                 <li>
                     <img src="./images/jiazhou2.png" height="80px"><br>
                     <a href="https://jiazhou-garland.github.io/" >
@@ -83,7 +86,7 @@
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <ul class="nav nav-pills nav-justified">
                         <li>
-			    <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lyu_UniBind_LLM-Augmented_Unified_and_Balanced_Representation_Space_to_Bind_Them_CVPR_2024_paper.pdf">
+			    <a href="">
                             <img src="./images/arxiv.png" height="100px"><br>
                                 <h4><strong>Paper</strong></h4>
                             </a>
@@ -95,7 +98,7 @@
                             </a>
                         </li>
                         <li> -->
-                            <a href="https://github.com/QC-LY/UniBind">
+                            <a href="">
                             <img src="./images/github_icon.jpg" height="100px"><br>
                                 <h4><strong>Code</strong></h4>
                             </a>
@@ -110,7 +113,7 @@
  
 
 <!--                         <li>
-                            <a href="https://github.com/jiazhou-garland/ELIP/blob/master/Appendix.pdf">
+                            <a href="">
                             <img src="./images/slide_icon.jpg" height="100px"><br>
                                 <h4><strong>Supp</strong></h4>
                             </a>
@@ -133,39 +136,17 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    We present UniBind, a flexible and efficient approach
-                    that learns a unified representation space for seven diverse
-                    modalities - image, text, audio, point cloud, thermal, video,
-                    and event data. Existing works, e.g., ImageBind, treat
-                    the image as the central modality and build an image-
-                    centered representation space; however, the space may be
-                    sub-optimal as it leads to an unbalanced representation
-                    space among all modalities. Moreover, the category names
-                    are directly used to extract text embeddings for the down-
-                    stream tasks, making it hardly possible to represent the se-
-                    mantics of multi-modal data. The "out-of-the-box" insight
-                    of our UniBind is to make the alignment centers modality-
-                    agnostic and further learn a unified and balanced repre-
-                    sentation space, empowered by the large language mod-
-                    els (LLMs). UniBind is superior in its flexible application
-                    to all CLIP-style models and delivers remarkable perfor-
-                    mance boosts. To make this possible, we 1) construct a
-                    knowledge base of text with the help of LLMs and multi-
-                    modal LLMs; 2) adaptively build LLM-augmented class-
-                    wise embedding centers on top of the knowledge base and
-                    encoded visual embeddings; 3) align all the embeddings
-                    to the LLM-augmented embedding centers via contrastive
-                    learning to achieve a unified and balanced representation
-                    space. UniBind shows strong zero-shot recognition perfor-
-                    mance gains over prior arts by an average of 6.36%. Fi-
-                    nally, we achieve new state-of-the-art performance, e.g., a
-                    6.75% gain on ImageNet, on the multi-modal fine-tuning
-                    setting while reducing 90% of the learnable parameters
+                    Fusing an arbitrary number of modalities is vital for achieving robust multi-modal fusion of semantic segmentation yet remains less explored to date. 
+			Recent endeavors regard RGB modality as the center and the others as the auxiliary, yielding an asymmetric architecture with two branches. 
+			However, the RGB modality may struggle in certain circumstances, \eg, nighttime, while others, \eg, event data, own their merits; thus, it is imperative for the fusion model to discern robust and fragile modalities, and incorporate the most robust and fragile ones to learn a resilient multi-modal framework. 
+			To this end, we propose a novel method, named \textbf{MAGIC}, that can be flexibly paired with various backbones, ranging from compact to high-performance models. 
+			Our method comprises two key plug-and-play modules. Firstly, we introduce a multi-modal aggregation module to efficiently process features from multi-modal batches and extract complementary scene information. On top, a unified arbitrary-modal selection module is proposed to utilize the aggregated features as the benchmark to rank the multi-modal features based on the similarity scores. This way, our method can eliminate the dependence on RGB modality and better overcome sensor failures while ensuring the segmentation performance. Under the commonly considered multi-modal setting, our method achieves state-of-the-art performance while reducing the model parameters by \textbf{60\%}. 
+			Moreover, our method is superior in the novel modality-agnostic setting, where it outperforms prior arts by a large margin of \textbf{+19.41}\% mIoU.
                 </p>
             </div>
 
             <div class="col-md-8 col-md-offset-2">
-                <video width="854" height="480" controls src="./images/unibind.mp4" class="img-responsive" alt="vis_res" class="center"><br>        
+                <video width="854" height="480" controls src="./images/MAGIC.mp4" class="img-responsive" alt="vis_res" class="center"><br>        
             </div>
         </div>
 
@@ -176,12 +157,12 @@
      <div class="row">     
         <div class="col-md-8 col-md-offset-2">
             <h3>
-                Overall framework of our UniBind
+                Overall framework of our MAGIC
             </h3>
 		<p class="text-justify">
-			An overview of our UniBind. Firstly, we construct the <strong>knowledge base</strong>, then learn a unified representation space via <strong>LLM-augmented contrastive learning</strong>, powered by the knowledge base. Lastly, We utilize the <strong>embedding center</strong> localized by the knowledge base to obtain the predictions.
+			Overall framework of our MAGIC framework, incorporates plug-and-play multi-modal aggregation and arbitrary-modal selection modules.
 		</p>
-            <img src="./images/UniBind.png" class="img-responsive" alt="vis_res"  class="center" >
+            <img src="./images/MAGIC.png" class="img-responsive" alt="vis_res"  class="center" >
       	</div>
     </div>
 <div class="row">     
@@ -259,8 +240,8 @@
                 <div class="row align-items-center">
                     <div class="col py-3">
                         <pre class="border">             
-@article{lyu2024unibind,
-  title={UniBind: LLM-Augmented Unified and Balanced Representation Space to Bind Them All},
+@article{lyu2024MAGIC,
+  title={MAGIC: LLM-Augmented Unified and Balanced Representation Space to Bind Them All},
   author={Lyu, Yuanhuiyi and Zheng, Xu and Zhou, Jiazhou and Wang, Lin},
   journal={arXiv preprint arXiv:2403.12532},
   year={2024}
